@@ -10,8 +10,12 @@ run the following command to bring all npm packages required for this project
 
 ```
 npm install
- 
-and 
 
+```
+
+and run the  command
+
+```
 npm start 
+
 ```
