@@ -12,8 +12,12 @@ const {_storage_favorites,_remove_favorites}=useContext(_Favorites_Context)
 const _HoverEffect=(e)=>{
 e.stopPropagation()
 const _element=$(document.body).find(e.target);
-const _element_parent=$(_element).parent().index(); 
-const _find_color=_Array_color[_element_parent]._colors[$(_element).index()]
+const _id=$(_element).parent().parent().parent().data('id') ?? 0;
+const _Index=_Array_color.findIndex((x)=>x._ids===_id)
+const _find_color=_Array_color[_Index]._colors[$(_element).parent().index()]
+
+
+
 const _newEle=`<div class='_div_f_f_r' style="color:${$(_element).css('background-color')}">${_find_color}</div>`
 if(!$(_element).find('._div_f_f_r').length > 0 && _find_color!==undefined ){
 $(_element).parent().find('div').eq(0).addClass('_d_s_c_t')
